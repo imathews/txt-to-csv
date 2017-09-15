@@ -1,0 +1,21 @@
+{
+	"ignoreEndCharacters": 2,
+	"columns": [
+		{
+			"name": "firstName",
+			"length": 7
+		},
+		{
+			"name": "lastName",
+			"length": 11
+		},
+		{
+			"name": "verb",
+			"length": 8
+		},
+		{
+			"name": "status",
+			"length": 7
+		}
+	]
+}

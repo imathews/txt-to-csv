@@ -1,6 +1,10 @@
 {
   "name": "data-transformer",
   "version": "",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node index.js example"
+  },
   "dependencies": {
     "csv": "1.1.1"
   }

@@ -1,24 +1,33 @@
 const fs = require('fs');
+const path = require('path');
 const csv = require('csv');
 const { Transform } = require('stream');
-const config = require('./config.json');
+
+let workdir = __dirname;
+
+if (process.argv[2]){
+	workdir = path.join(__dirname, process.argv[2]);
+}
+
+const config = require(require.resolve(path.join(workdir, 'config.json')));
 
 const rowEndLength = config.ignoreEndCharacters || 0; // The number of characters, including line breaks, to ignore at the end of each line
 const columns = config.columns;
 const rowLength = columns.reduce((prev, col) => prev + col.length, rowEndLength);
 
-const files = fs.readdirSync(`${__dirname}/inputs`);
+const files = fs.readdirSync(path.join(workdir, 'inputs'));
 
 transformFilesInSeries(files);
 
 async function transformFilesInSeries(files){
 	for (const file of files){
+		if (file[0] === '.') continue;
 		const startTime = Date.now();
 		console.log('=====================');
 		console.log(`Parsing file ${file}`);
 		await new Promise((resolve, reject) => {
-			const readStream = fs.createReadStream(`${__dirname}/inputs/${file}`, { encoding: 'ascii' });
-			const writeStream = fs.createWriteStream(`${__dirname}/outputs/${file.split('.')[0]}.csv`)
+			const readStream = fs.createReadStream(path.join(workdir, 'inputs', file), { encoding: 'ascii' });
+			const writeStream = fs.createWriteStream(path.join(workdir, 'outputs', `${file.split('.')[0]}.csv`))
 			let leftoverString = '';
 
 			const stringifier = csv.stringify();
