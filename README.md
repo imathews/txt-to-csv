@@ -2,8 +2,9 @@
 This script parses byte-offset encoded data files into csvs.
 
 ### Installation  
-- Make sure you have [node.js](https://nodejs.org) installed. 
-- In terminal, navigate to this directory and run `npm install`
+- Make sure you have [node.js](https://nodejs.org) installed
+- Clone or download this repository to your computer
+- In terminal, navigate to the downloaded directory and run `npm install`
 
 ### Usage
 - Place all files that you want to transform in the `inputs` directory. They must all have the same schema.
