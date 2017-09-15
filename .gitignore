@@ -1,6 +1,6 @@
 node_modules
-inputs
-outputs
+inputs/*
+outputs/*
 
 !outputs/.keep
 !inputs/.keep
