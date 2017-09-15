@@ -1,0 +1,17 @@
+{
+	"ignoreEndCharacters": 1,
+	"columns": [
+		{
+			"name": "var1_with_length_5",
+			"length": 5
+		},
+		{
+			"name": "var2_with_length_8",
+			"length": 8
+		},
+		{
+			"name": "etc...",
+			"length": 30
+		}
+	]
+}
